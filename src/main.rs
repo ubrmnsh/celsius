@@ -14,16 +14,34 @@ fn main() {
         .read_line(&mut selection)
         .expect("Failed to read line. \n");
 
-    let selection: u32 = match selection.trim().parse() {
-        Ok(num) => num,
-        Err(_) => panic!("Out of range selection"),
+    let selection: i32 = match selection.trim().parse() {
+        Ok(num) => {
+            if num == 1 || num == 2 {
+                num
+            } else {
+                panic!("out of range");
+            }
+        }
+        _ => panic!("out of range"),
     };
-    //calculate_temperature(34);
 
-    println!("chosen number is: {selection}");
+    let res = temperature_calculator(selection);
+    println!("The calculated temperature is : {:?}", res)
 }
 
-fn calculate_temperature(temp: i32) {
-    let temp = temp + 32;
-    println!("calculated temperature is: {temp}");
+fn temperature_calculator(selection: i32) -> u32 {
+    let mut temp = String::new();
+    println!("Enter the temperature");
+    io::stdin()
+        .read_line(&mut temp)
+        .expect("Failed to read line. \n");
+    let temp: u32 = match temp.trim().parse() {
+        Ok(num) => num,
+        _ => panic!("not desired"),
+    };
+    if selection == 1 {
+        temp + 32
+    } else {
+        temp - 32
+    }
 }
