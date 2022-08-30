@@ -19,16 +19,11 @@ fn main() {
             if num == 1 || num == 2 {
                 num
             } else {
-                panic!("{selection} is not a valid option, Please choose between 1 or 2");
+                panic!("\t{selection} is not a valid option, Please choose between 1 or 2");
             }
         }
-        _ => panic!("{selection} is not a valid option, Please choose between 1 or 2"),
+        _ => panic!("\t{selection} is not a valid option, Please choose between 1 or 2"),
     };
 
-    let res = calc::temperature_calculator(selection);
-    if selection == 1 {
-        println!("Temperature is : {:?}°C", res)
-    } else {
-        println!("Temperatures : {:?}°F", res)
-    }
+    calc::temperature_calculator(selection);
 }

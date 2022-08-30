@@ -1,8 +1,8 @@
 use std::io;
 
-pub fn temperature_calculator(selection: i32) -> f32 {
+pub fn temperature_calculator(selection: i32) {
     let mut temp = String::new();
-    println!("Enter the temperature");
+    println!("\tEnter the temperature");
     io::stdin()
         .read_line(&mut temp)
         .expect("Failed to read line. \n");
@@ -10,11 +10,14 @@ pub fn temperature_calculator(selection: i32) -> f32 {
         Ok(num) => num,
         _ => panic!("not desired"),
     };
+
     if selection == 1 {
         // fahrenheit to celsius
-        ((temp - 32) * 5 / 9) as f32
+        let temp = ((temp - 32) * 5 / 9) as f32;
+        println!("\t\tTemperature is : {:?}°C", temp)
     } else {
         // celsiusn to fahrenheit
-        ((temp * 9 / 5) + 32) as f32
+        let temp = ((temp * 9 / 5) + 32) as f32;
+        println!("\t\tTemperatures : {:?}°F", temp)
     }
 }
