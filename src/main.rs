@@ -1,4 +1,5 @@
 use std::io;
+mod calc;
 
 fn main() {
     println!(
@@ -19,29 +20,19 @@ fn main() {
             if num == 1 || num == 2 {
                 num
             } else {
-                panic!("out of range");
+                panic!("{selection} is not a valid option, Please choose between 1 or 2");
             }
         }
-        _ => panic!("out of range"),
+        _ => panic!("{selection} is not a valid option, Please choose between 1 or 2"),
     };
 
-    let res = temperature_calculator(selection);
-    println!("The calculated temperature is : {:?}", res)
-}
-
-fn temperature_calculator(selection: i32) -> u32 {
-    let mut temp = String::new();
-    println!("Enter the temperature");
-    io::stdin()
-        .read_line(&mut temp)
-        .expect("Failed to read line. \n");
-    let temp: u32 = match temp.trim().parse() {
-        Ok(num) => num,
-        _ => panic!("not desired"),
-    };
+    let res = calc::temperature_calculator(selection);
     if selection == 1 {
-        temp + 32
+        println!("temp is : {:?}° celsius", res)
     } else {
-        temp - 32
+        println!("temp is : {:?}° fahrenheit", res)
     }
+   // println!("The calculated temperature is : {:?}", res)
 }
+
+
