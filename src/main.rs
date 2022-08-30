@@ -28,11 +28,8 @@ fn main() {
 
     let res = calc::temperature_calculator(selection);
     if selection == 1 {
-        println!("temp is : {:?}° celsius", res)
+        println!("Temperature is : {:?}°C", res)
     } else {
-        println!("temp is : {:?}° fahrenheit", res)
+        println!("Temperatures : {:?}°F", res)
     }
-   // println!("The calculated temperature is : {:?}", res)
 }
-
-
