@@ -1,0 +1,3 @@
+# celsius
+
+Learning Rust! 🦀 
