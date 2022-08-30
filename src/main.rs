@@ -2,12 +2,11 @@ use std::io;
 mod calc;
 
 fn main() {
-    println!(
-        "== Calculate Temperature ==>
-              Choose conversation
-             1. Fahrenheit to Celsius
-             2. Celsius to Fahrenheit"
-    );
+    let message = " == Calculate Temperature ==
+    Choose Conversation Scale 1. Fahrenheit to Celsius
+                              2. Celsius to Fahrenheit";
+
+    println!("\x1b[93m{}\x1b[0m", message);
 
     let mut selection = String::new();
 
